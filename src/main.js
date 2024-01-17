@@ -26,11 +26,9 @@ async function handleFormSubmit(e) {
   e.preventDefault();
   resetGallery();
   userSearchRequest = searchInput.value.trim();
-    if (!userSearchRequest) {
+  if (!userSearchRequest) {
     loader.style.display = 'none';
-    return showMessage(
-        'Please enter your search query!'
-      );
+    return showMessage('Please enter your search query!');
   }
   await fetchAndRenderImages();
 }
@@ -45,13 +43,7 @@ async function fetchAndRenderImages() {
       return showMessage(
         'Sorry, no images match your search query. Please try again!'
       );
-      }
-//       if (!userSearchRequest) {
-//     loader.style.display = 'none';
-//     return showMessage(
-//         'Please enter your search query!'
-//       );
-//   }
+    }
     renderImages(images.hits);
     handleLoadMoreButton(images.totalHits);
   } catch (error) {
